@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="planetDropDown">
         <select id="planets">
             <option v-for="planet in planets" :key="planet.id" :value="planet.id">
                 {{planet.name}}
@@ -17,6 +17,9 @@
     }
 </script>
 
-<style scoped>
+<style>
+    .planetDropDown {
+        display: inline-block;
+    }
 
 </style>

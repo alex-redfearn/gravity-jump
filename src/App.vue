@@ -1,12 +1,12 @@
 <template>
     <div class="universe">
-        <div>
-            <height-chart v-bind:meters="Array(70)"/>
-        </div>
+        <astronaut v-bind:height="height"/>
+
+        <height-chart v-bind:meters="Array(70)"/>
+
         <div class="planet">
-            <div class="planetDropDown">
-                <planet-drop-down v-bind:planets="planets"/>
-            </div>
+            <planet-drop-down v-bind:planets="planets"/>
+            <Jump/>
         </div>
     </div>
 </template>
@@ -14,12 +14,16 @@
 <script>
     import HeightChart from "./components/HeightChart";
     import PlanetDropDown from "./components/PlanetDropDown";
+    import Astronaut from "./components/Astronaut";
+    import Jump from "./components/Jump";
 
     export default {
         name: 'app',
         components: {
             HeightChart,
-            PlanetDropDown
+            PlanetDropDown,
+            Astronaut,
+            Jump
         },
         comments: {
             HeightChart
@@ -42,6 +46,11 @@
                         name: "Mars",
                         gravity: 3.7
                     }
+                ],
+                height: [
+                    {
+                        meters: 5
+                    }
                 ]
             }
         }
@@ -61,17 +70,10 @@
         width: 100%;
         height: 175px;
         background: mediumpurple;
-        border-radius: 50%;
+        border-radius: 50% 50% 0% 0%;
         text-align: center;
-        line-height: 150px;
+        line-height: 175px;
         bottom: -50px;
         position: absolute;
     }
-
-    .planetDropDown {
-        display: inline-block;
-        vertical-align: middle;
-        line-height: normal;
-    }
-
 </style>
