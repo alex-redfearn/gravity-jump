@@ -28,6 +28,11 @@
         comments: {
             HeightChart
         },
+        mounted: function() {
+            window.setInterval(() => {
+
+            }, 3000)
+        },
         data() {
             return {
                 planets: [
