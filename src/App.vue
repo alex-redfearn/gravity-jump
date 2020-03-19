@@ -1,12 +1,12 @@
 <template>
     <div class="universe">
-        <astronaut v-bind:height="height"/>
+        <astronaut id="astronaut" />
 
-        <height-chart v-bind:meters="Array(70)"/>
+        <height-chart />
 
         <div class="planet">
             <planet-drop-down v-bind:planets="planets"/>
-            <Jump/>
+            <Jump v-bind:height="height"/>
         </div>
     </div>
 </template>
@@ -27,11 +27,6 @@
         },
         comments: {
             HeightChart
-        },
-        mounted: function() {
-            window.setInterval(() => {
-
-            }, 3000)
         },
         data() {
             return {
@@ -54,7 +49,7 @@
                 ],
                 height: [
                     {
-                        meters: 5
+                        meters: 3.7
                     }
                 ]
             }

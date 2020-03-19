@@ -1,7 +1,5 @@
 <template>
-    <div>
-        <img class="astronaut" alt="Vue logo" src="./../assets/astronaut.jpg">
-    </div>
+    <img class="astronaut" alt="Vue logo" src="./../assets/astronaut.jpg">
 </template>
 
 <script>
@@ -12,12 +10,12 @@
 
 <style>
     .astronaut {
-        width: 50px;
-        height: 60px;
+        width: 70px;
+        height: 90px;
         position: absolute;
         z-index: 99;
         left: 48%;
-        top: 98%;
+        top: 6270px;
     }
 
 </style>

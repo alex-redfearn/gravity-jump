@@ -2,7 +2,7 @@
     <div id="height-table">
         <table>
             <tbody>
-            <tr v-for="i in reversedItems" :key="i">
+            <tr v-for="i in meters" :key="i">
                 <td>
                     {{i.toString() + "m"}}
                 </td>
@@ -15,14 +15,9 @@
 <script>
     export default {
         name: "height-chart",
-        props: {
-            meters: {
-                type: Array
-            }
-        },
         computed: {
-            reversedItems() {
-                var max = this.meters.length;
+            meters() {
+                var max = 70;
                 var arr = [];
 
                 for(var i = max; i >= 0; i--){
