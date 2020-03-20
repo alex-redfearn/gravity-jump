@@ -5,7 +5,7 @@
         <height-chart/>
 
         <div class="planet">
-            <planet-drop-down v-bind:planets="planets"/>
+            <planet-drop-down v-bind:planets="planets" @planetChanged="getHeight($event)"/>
             <Jump v-bind:height="height"/>
         </div>
     </div>
@@ -25,33 +25,36 @@
             Astronaut,
             Jump
         },
-        comments: {
-            HeightChart
+        mounted() {
+            this.getPlanets()
         },
         data() {
             return {
-                planets: [
-                    {
-                        id: 1,
-                        name: "Mercury",
-                        gravity: 3.7
-                    },
-                    {
-                        id: 2,
-                        name: "Jupiter",
-                        gravity: 24.9
-                    },
-                    {
-                        id: 3,
-                        name: "Mars",
-                        gravity: 3.7
-                    }
-                ],
-                height: [
+                planets: [],
+                height:
                     {
                         meters: 0.5
                     }
-                ]
+            }
+        },
+        methods: {
+            async getPlanets() {
+                try {
+                    const response = await fetch(`http://localhost:8080/planet`)
+                    const data = await response.json()
+                    this.planets = data
+                } catch (error) {
+                    console.log(error)
+                }
+            },
+            async getHeight(planet) {
+                try {
+                    const response = await fetch(`http://localhost:8080/jump/${planet}`)
+                    const data = await response.json()
+                    this.height = data
+                } catch (error) {
+                    console.log(error)
+                }
             }
         }
     }

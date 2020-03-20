@@ -31,12 +31,14 @@
             }, 20)
         },
         props: {
-            height: Array
+            height: {String: String}
         },
         methods: {
             jump() {
                 const astronaut = document.getElementById("astronaut");
-                const height = this.ground - (this.height[0].meters * 80);
+                console.log(this.height.meters)
+                const height = this.ground - (this.height.meters * 80);
+                console.log(height)
 
                 if (this.jumping === true && this.position >= height) {
 
