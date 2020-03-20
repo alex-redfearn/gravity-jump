@@ -17,10 +17,10 @@
         name: "height-chart",
         computed: {
             meters() {
-                var max = 70;
-                var arr = [];
+                const max = 70;
+                const arr = [];
 
-                for(var i = max; i >= 0; i--){
+                for (var i = max; i >= 0; i--) {
                     arr.push(i)
                 }
 
@@ -33,8 +33,8 @@
 <style scoped>
     table, th, td {
         border: none;
-        border-collapse:separate;
-        border-spacing:0 70px;
+        border-collapse: separate;
+        border-spacing: 0 70px;
         color: white;
     }
 

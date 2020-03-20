@@ -1,8 +1,8 @@
 <template>
     <div class="universe">
-        <astronaut id="astronaut" />
+        <astronaut id="astronaut"/>
 
-        <height-chart />
+        <height-chart/>
 
         <div class="planet">
             <planet-drop-down v-bind:planets="planets"/>
@@ -49,7 +49,7 @@
                 ],
                 height: [
                     {
-                        meters: 3.7
+                        meters: 0.5
                     }
                 ]
             }
