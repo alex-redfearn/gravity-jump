@@ -24,9 +24,10 @@ npm run lint
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
 
-# running
+# Running
 
-First run solar-jump
+First run solar-jump. The repository is located here: 
+https://github.com/ARedfearn/solar-jump
 
 Add some planets using:
 
@@ -34,6 +35,8 @@ Add some planets using:
 $ curl -i -H 'Content-Type:  application/json' -d '{"name" : "jupiter","gravity" : 24.79}' -X PUT  http://localhost:8086/planet
 ```
 
+planets
+```
  Planet	Gravity m/s²
     Earth 9.81
     Moon 3.03
@@ -43,7 +46,8 @@ $ curl -i -H 'Content-Type:  application/json' -d '{"name" : "jupiter","gravity"
     Saturn	10.44
     Uranus	8.87
     Neptune	11.15
-    
+``` 
+
 Run locally using
 
 ```
