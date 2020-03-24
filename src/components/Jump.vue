@@ -1,11 +1,11 @@
 <template>
     <div class="button" v-if="reset === true">
-        <button v-on:click="setJumping(false)">
+        <button v-on:click="setReset(false)">
             Jump
         </button>
     </div>
     <div class="button" v-else>
-        <button v-on:click="setJumping(true)">
+        <button v-on:click="setReset(true)">
             Reset
         </button>
     </div>
@@ -31,39 +31,45 @@
             }, 20)
         },
         props: {
-            height: Array
+            height: {String: String}
         },
         methods: {
             jump() {
                 const astronaut = document.getElementById("astronaut");
-                const height = this.ground - (this.height[0].meters * 80);
+                const height = this.ground - (this.height.meters * 80);
 
                 if (this.jumping === true && this.position >= height) {
-
-                    this.position = this.position - this.gravitationalPull(this.position, height, this.force)
-                    astronaut.style.top = this.position + "px"
-
-                    if (this.position <= height) {
-                        this.jumping = false
-                    }
+                    this.moveUpward(astronaut, height)
                 }
 
                 if (this.jumping === false && this.position <= this.ground - 1) {
-                    this.position = this.position + this.gravitationalPull(this.position, height, this.gravity)
-                    astronaut.style.top = this.position + "px"
+                    this.moveDownward(astronaut, height)
                 }
 
                 if (this.jumping === false && this.position >= this.ground) {
-                    this.reset = true
-                } else if (this.reset === true) {
+                    this.setReset(true)
+                }
+
+                if (this.reset === true) {
                     astronaut.style.top = this.ground + "px"
                     this.position = this.ground
                 }
             },
-            setJumping(reset) {
-                this.reset = reset
-                this.jumping = ((!reset))
+
+            moveUpward(astronaut, height) {
+                this.position = this.position - this.gravitationalPull(this.position, height, this.force)
+                astronaut.style.top = this.position + "px"
+
+                if (this.position <= height) {
+                    this.jumping = false
+                }
             },
+
+            moveDownward(astronaut, height) {
+                this.position = this.position + this.gravitationalPull(this.position, height, this.gravity)
+                astronaut.style.top = this.position + "px"
+            },
+
             gravitationalPull(position, height, velocity) {
                 const difference = position - height;
 
@@ -76,6 +82,11 @@
                 } else {
                     return velocity
                 }
+            },
+
+            setReset(reset) {
+                this.reset = reset
+                this.jumping = ((!reset))
             }
         }
     }
