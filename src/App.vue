@@ -40,7 +40,7 @@
         methods: {
             async getPlanets() {
                 try {
-                    const response = await fetch(`http://localhost:8086/planet`)
+                    const response = await fetch(`http://localhost:8081/planet`)
                     const data = await response.json()
                     this.planets = data
                 } catch (error) {
@@ -49,7 +49,7 @@
             },
             async getHeight(planet) {
                 try {
-                    const response = await fetch(`http://localhost:8086/jump/${planet}`)
+                    const response = await fetch(`http://localhost:8081/jump/${planet}`)
                     const data = await response.json()
                     this.height = data
                 } catch (error) {
