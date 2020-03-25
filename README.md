@@ -32,7 +32,7 @@ https://github.com/ARedfearn/solar-jump
 Add some planets using:
 
 ```
-$ curl -i -H 'Content-Type:  application/json' -d '{"name" : "jupiter","gravity" : 24.79}' -X PUT  http://localhost:8086/planet
+$ curl -i -H 'Content-Type:  application/json' -d '{"name" : "jupiter","gravity" : 24.79}' -X PUT  http://localhost:8081/planet
 ```
 
 planets
